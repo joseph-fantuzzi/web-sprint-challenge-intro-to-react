@@ -1,5 +1,5 @@
 // Write your Character component here
-import React from "react";
+import React, { useState } from "react";
 import styled, { keyframes } from "styled-components";
 
 const CharacterDivKeyFrame = keyframes`
@@ -17,11 +17,12 @@ const CharacterDiv = styled.div`
   border: 2px solid white;
   border-radius: 50px;
   display: flex;
+  cursor: pointer;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-  transition: all 0.3s ease;
+  transition: all 0.5s ease;
 
   color: ${(props) => (props.character.name === "Darth Vader" ? "#EB3C3C" : "#f7d336")};
 
@@ -63,18 +64,34 @@ const CharacterListItem = styled.li`
   color: #eed0b0;
 `;
 
+const Img = styled.img`
+  width: 500px;
+  height: 500px;
+  padding-bottom: 40px;
+  display: ${(props) => (props.truthy === true ? "flex" : "none")};
+`;
+
 function Character(props) {
+  const [truthy, setTrue] = useState(false);
+
+  function active() {
+    setTrue(true);
+  }
+
   return (
-    <CharacterDiv className="individual-character-container" character={props.character}>
-      <CharacterNameH2>{props.character.name}</CharacterNameH2>
-      <BirthYearP>Birth Year: {props.character.birth_year}</BirthYearP>
-      <OrderedList>
-        Movies Featured In:
-        {props.character.films.map((film, id) => {
-          return <CharacterListItem key={id}>{film}</CharacterListItem>;
-        })}
-      </OrderedList>
-    </CharacterDiv>
+    <>
+      <Img truthy={truthy} src={props.characterURL} />
+      <CharacterDiv onClick={active} className="individual-character-container" character={props.character}>
+        <CharacterNameH2>{props.character.name}</CharacterNameH2>
+        <BirthYearP>Birth Year: {props.character.birth_year}</BirthYearP>
+        <OrderedList>
+          Movies Featured In:
+          {props.character.films.map((film, id) => {
+            return <CharacterListItem key={id}>{film}</CharacterListItem>;
+          })}
+        </OrderedList>
+      </CharacterDiv>
+    </>
   );
 }
 
