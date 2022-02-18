@@ -1,6 +1,13 @@
 // Write your Character component here
 import React from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const CharacterDivKeyFrame = keyframes`
+   100% {
+      opacity: 1;
+      transform: scale(1);
+   }
+`;
 
 const CharacterDiv = styled.div`
   width: 90%;
@@ -18,31 +25,47 @@ const CharacterDiv = styled.div`
 
   color: ${(props) => (props.character.name === "Darth Vader" ? "#EB3C3C" : "#f7d336")};
 
+  opacity: 0;
+  transform: scale(2);
+  animation: ${CharacterDivKeyFrame} 1s ease forwards;
+
   &:hover {
     background-color: ${(props) => (props.character.name === "Darth Vader" ? "#494949" : "#2c8ebb")};
+  }
+
+  @media (max-width: 1550px) {
+    flex-direction: column;
+    padding-bottom: 50px;
   }
 `;
 
 const CharacterNameH2 = styled.h2`
   font-size: 3rem;
+
+  @media (max-width: 590px) {
+    font-size: 2rem;
+  }
 `;
 
 const BirthYearP = styled.p`
   font-size: 1.5rem;
+  color: #6fd8a5;
 `;
 
 const OrderedList = styled.div`
   font-size: 1.5rem;
+  color: #f18a1c;
 `;
 
 const CharacterListItem = styled.li`
-  padding: 5px 0;
   font-size: 1rem;
+  margin-top: 20px;
+  color: #eed0b0;
 `;
 
 function Character(props) {
   return (
-    <CharacterDiv character={props.character}>
+    <CharacterDiv className="individual-character-container" character={props.character}>
       <CharacterNameH2>{props.character.name}</CharacterNameH2>
       <BirthYearP>Birth Year: {props.character.birth_year}</BirthYearP>
       <OrderedList>

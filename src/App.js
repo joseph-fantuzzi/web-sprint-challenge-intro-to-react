@@ -1,8 +1,22 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import axios from "axios";
+import styled, { keyframes } from "styled-components";
 
 import Character from "./components/Character";
+
+const TitleKeyFrame = keyframes`
+   100% {
+      opacity: 1;
+      transform: scale(1) rotateZ(0);
+   }
+`;
+
+const CharacterTitleH1 = styled.h1`
+  opacity: 0;
+  transform: scale(2) rotateZ(180deg);
+  animation: ${TitleKeyFrame} 1s ease-in-out forwards;
+`;
 
 const App = () => {
   // Try to think through what state you'll need for this app before starting. Then build out
@@ -25,7 +39,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1 className="Header">Characters</h1>
+      <CharacterTitleH1 className="Header">Star Wars Characters</CharacterTitleH1>
       <div className="character-container">
         {characters &&
           characters.map((character, id) => {
