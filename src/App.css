@@ -2,7 +2,23 @@
   text-align: center;
 }
 .Header {
-  color: #443e3e;
+  color: #2c8ebb;
+  font-size: 4rem;
   text-shadow: 1px 1px 5px #fff;
 }
 /* write your parent styles in here for your App.js */
+
+.character-container {
+  width: 80%;
+  padding: 30px 0;
+  margin: 50px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  background-color: rgba(0, 0, 0, 0.3);
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}

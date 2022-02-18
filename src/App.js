@@ -26,10 +26,12 @@ const App = () => {
   return (
     <div className="App">
       <h1 className="Header">Characters</h1>
-      {characters &&
-        characters.map((character, id) => {
-          return <Character key={id} character={character} />;
-        })}
+      <div className="character-container">
+        {characters &&
+          characters.map((character, id) => {
+            return <Character key={id} character={character} />;
+          })}
+      </div>
     </div>
   );
 };
