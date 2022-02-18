@@ -79,6 +79,18 @@ After finishing your required elements, you can push your work further. These go
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. Put your answers underneath the questions:
 
 1. What is React JS and what problems does it solve? Support your answer with concepts introduced in class and from your personal research on the web.
+
+React JS is a JavaScript front-end library to help build user interfaces based on components. It solves a great issue with large applications that have many data changes. React hooks solve this, allowing developers to hook into react state from function components.
+
 1. Describe component state.
+
+Component state is a state that React components can possess. They are a set of key-value pairs which belong to a component and can be passed down through props. When the state changes, React re-renders the component. State can be used using hooks in functional components or can be used as JavaScript objects in class components.
+This data is able to change over the lifetime of the component. The useState() function in React is a hook that allows you to have state variables in functional components.
+
 1. Describe props.
+
+Props in React are JavaScript objects which store the value of attributes of a tag component. It allows a way to pass data from one component down to the others.
+
 1. What are side effects, and how do you sync effects in a React component to changes of certain state or props?
+
+Side Effects in React is anything that can affect something outside of the scope of the current function that is being executed. The useEffect() hook function allows developers to perform side effects in any component. You can sync effects in a React component to changes of certain state or props by using the useEffect()'s second argument, dependency, which means that if that certain dependency changes from previous render, then the effect hook function is invoked. Omitting the second argument allows the effect to run after every re-render of the component.
