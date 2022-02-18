@@ -12,6 +12,7 @@
   width: 80%;
   padding: 30px 0;
   margin: 50px auto;
+  margin-bottom: 100px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;

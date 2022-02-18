@@ -69,6 +69,11 @@ const Img = styled.img`
   height: 500px;
   padding-bottom: 40px;
   display: ${(props) => (props.truthy === true ? "flex" : "none")};
+
+  @media (max-width: 600px) {
+    width: 300px;
+    height: 300px;
+  }
 `;
 
 function Character(props) {
